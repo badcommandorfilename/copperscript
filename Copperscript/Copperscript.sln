@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopperLicht", "CopperLicht\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial2", "Tutorial2\Tutorial2.csproj", "{9DCA767C-A60B-4C5B-A34F-7F5DDB1006E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial3", "Tutorial3\Tutorial3.csproj", "{7AE95563-6A16-4897-B0EA-0D580B8B8A93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{9DCA767C-A60B-4C5B-A34F-7F5DDB1006E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DCA767C-A60B-4C5B-A34F-7F5DDB1006E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DCA767C-A60B-4C5B-A34F-7F5DDB1006E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE95563-6A16-4897-B0EA-0D580B8B8A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE95563-6A16-4897-B0EA-0D580B8B8A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE95563-6A16-4897-B0EA-0D580B8B8A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE95563-6A16-4897-B0EA-0D580B8B8A93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
