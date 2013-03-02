@@ -31,5 +31,7 @@ namespace CL3D
         public extern void setActiveCamera(CameraSceneNode cam);
         [ScriptName("registerNodeForRendering")]
         public extern void registerNodeForRendering(SceneNode n, int mode);
+
+        public extern MetaTriangleSelector getCollisionGeometry();
     }
 }

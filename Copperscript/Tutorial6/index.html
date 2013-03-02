@@ -2,6 +2,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<script type="text/javascript" src="js/copperlicht.js"></script>
+    <script type="text/javascript" src="mscorlib.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="Tutorial6.debug.js"></script>
 </head>
 <body>
 	<b>Tutorial 06: Collision detection.</b><br/>
@@ -15,52 +18,13 @@
 	</div>
 	<script type="text/javascript">
 	<!--
-	var engine = startCopperLichtFromFile('3darea', 'assets/copperlichtdata/room.ccbjs');
-	var cubeCollisionPosition = null;
+
 	// this is called when loading the 3d scene has finished
-	
-	engine.OnLoadingComplete = function() 
-	{		
-		var scene = engine.getScene();
-		if (!scene)
-			return;
-			
-		// in the CopperCube 3d editor, we already created a camera which collides against the wall in this scene.
-		// But to demonstrate how this would work manually, we create a new camera here which does this as well:
-		
-		// add a user controlled camera
-		
-		var cam = new CL3D.CameraSceneNode();
-		
-		// ensure to place the camera inside the room, or it will fall out, into the endless void
-		
-		cam.Pos.X = -50; 
-		cam.Pos.Y = 180;
-		cam.Pos.Z = -20;
-		
-		// add an animator which makes the camera move by keyboard and mouse input
-		
-		var animator = new CL3D.AnimatorCameraFPS(cam, engine);	
-		animator.MoveSpeed = 0.2;
-		animator.RotateSpeed = 250;
-		animator.setLookByMouseDown(false); //  look when the mouse is moved
-		cam.addAnimator(animator);										
-		animator.lookAt(new CL3D.Vect3d(-200,90,200));			
-		
-		scene.getRootSceneNode().addChild(cam);
-		scene.setActiveCamera(cam);		
-		
-		// add the collision response animator to collide against walls
-		
-		var colanimator = new CL3D.AnimatorCollisionResponse(
-			new CL3D.Vect3d(20,40,20), // size of the player ellipsoid
-			new CL3D.Vect3d(0,-10,0), // gravity direction
-			new CL3D.Vect3d(0,30,0), // position of the eye in the ellipsoid
-			scene.getCollisionGeometry());
-			
-		cam.addAnimator(colanimator);	
-	}
-	
+	var t = new GLEngine.Tutorial6();
+
+	var engine = t.main();
+
+	var cubeCollisionPosition = null;
 	// every time the user presses space, we want to do a collision test with the wall
 	// and create a cube where we hit the wall
 	

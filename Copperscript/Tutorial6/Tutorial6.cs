@@ -14,10 +14,9 @@ namespace Tutorial6
     [ScriptNamespace("GLEngine")]
     public class Tutorial6
     {
-        public void main()
+        public CopperLicht main()
         {
             CopperLicht engine = Global.startCopperLichtFromFile("3darea", "assets/copperlichtdata/room.ccbjs");
-	        Vect3d cubeCollisionPosition = null;
 
             engine.OnLoadingComplete = delegate
             {
@@ -48,7 +47,22 @@ namespace Tutorial6
                 animator.setLookByMouseDown(false); //  look when the mouse is moved
                 cam.addAnimator(animator);
                 animator.lookAt(new CL3D.Vect3d(-200, 90, 200));
+
+                scene.getRootSceneNode().addChild(cam);
+                scene.setActiveCamera(cam);
+
+                // add the collision response animator to collide against walls
+
+                AnimatorCollisionResponse colanimator = new AnimatorCollisionResponse(
+                    new CL3D.Vect3d(20, 40, 20), // size of the player ellipsoid
+                    new CL3D.Vect3d(0, -10, 0), // gravity direction
+                    new CL3D.Vect3d(0, 30, 0), // position of the eye in the ellipsoid
+                    scene.getCollisionGeometry());
+
+                cam.addAnimator(colanimator);	
             };
+
+            return engine;
         }
 
     }

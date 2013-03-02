@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <FileAlignment>512</FileAlignment>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CopperLicht</RootNamespace>
+    <RootNamespace>CL3D</RootNamespace>
     <AssemblyName>CopperLicht</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,12 +32,14 @@
   <ItemGroup>
     <Compile Include="Animator\Animator.cs" />
     <Compile Include="Animator\AnimatorCameraFPS.cs" />
+    <Compile Include="Animator\AnimatorCollisionResponse.cs" />
     <Compile Include="Animator\AnimatorRotation.cs" />
     <Compile Include="Mesh\Material.cs" />
     <Compile Include="Mesh\Mesh.cs" />
     <Compile Include="Mesh\MeshBuffer.cs" />
     <Compile Include="Mesh\Texture.cs" />
     <Compile Include="Mesh\TextureManager.cs" />
+    <Compile Include="TriangleSelector\MetaTriangleSelector.cs" />
     <Compile Include="Primatives\Matrix.cs" />
     <Compile Include="Primatives\Matrix4.cs" />
     <Compile Include="Primatives\Vect2d.cs" />
@@ -50,6 +52,7 @@
     <Compile Include="SceneNode\CubeSceneNode.cs" />
     <Compile Include="SceneNode\SceneNode.cs" />
     <Compile Include="SceneNode\SkyBoxSceneNode.cs" />
+    <Compile Include="TriangleSelector\TriangleSelector.cs" />
     <ScriptInfo Include="Properties\ScriptInfo.txt" />
     <Compile Include="Copperlicht.cs" />
     <Compile Include="GlobalFunctions.cs" />
@@ -65,6 +68,7 @@
     <Reference Include="ScriptSharp.Build">
       <HintPath>..\packages\ScriptSharp.0.7.5.1\tools\ScriptSharp.Build.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="js\copperlicht.js">
