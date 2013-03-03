@@ -6,6 +6,7 @@ namespace CL3D
 {
     public class CameraSceneNode : SceneNode
     {
-
+        public extern Vect3d getTarget();
+        public extern void setFov(double radians);
     }
 }

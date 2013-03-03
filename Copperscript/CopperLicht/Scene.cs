@@ -26,10 +26,14 @@ namespace CL3D
         public extern SceneNode getSceneNodeFromName(String name);
         [ScriptName("getRootSceneNode")]
         public extern SceneNode getRootSceneNode();
+        [ScriptName("getActiveCamera")]
+        public extern CameraSceneNode getActiveCamera();
 
         [ScriptName("setActiveCamera")]
         public extern void setActiveCamera(CameraSceneNode cam);
         [ScriptName("registerNodeForRendering")]
         public extern void registerNodeForRendering(SceneNode n, int mode);
+
+        public extern MetaTriangleSelector getCollisionGeometry();
     }
 }

@@ -29,6 +29,9 @@ namespace CL3D
 
         [ScriptName("getMaterial")]
         public extern Material getMaterial(int layer);
+
+        [ScriptName("getAbsolutePosition")]
+        public extern Vect3d getAbsolutePosition();
         [ScriptName("getAbsoluteTransformation")]
         public extern Matrix4 getAbsoluteTransformation();
 
