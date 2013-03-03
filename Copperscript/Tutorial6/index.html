@@ -24,23 +24,7 @@
 
 	var engine = t.main();
 
-	// every time the user presses space, we want to do a collision test with the wall
-	// and create a cube where we hit the wall
-	document.onkeyup = function(event)
-	{
-		var scene = engine.getScene();
-		if (!scene)
-			return;
-			
-		if (event.keyCode == 32) // space has been pressed
-		{
-		    t.onKeySpace(engine, scene);
-		}		
-		
-		// we need to call the key handler of the 3d engine as well, so that the user is
-		// able to move the camera using the keys
-		engine.handleKeyUp(event);
-	};
+	t.setEventHandlers();
 	-->
 	</script>
 </body>

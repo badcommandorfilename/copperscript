@@ -10,5 +10,6 @@ namespace CL3D
     /// </summary>
     public class MetaTriangleSelector : TriangleSelector
     {
+        public extern void addSelector(TriangleSelector metaTriangleSelector);
     }
 }

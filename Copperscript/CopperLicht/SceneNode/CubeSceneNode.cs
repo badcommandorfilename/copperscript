@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CL3D
 {
-    public class CubeSceneNode : SceneNode
+    public class CubeSceneNode : MeshSceneNode
     {
     }
 }

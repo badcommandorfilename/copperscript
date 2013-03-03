@@ -33,5 +33,7 @@ namespace CL3D
 
         [ScriptName("getRenderer")]
         public extern Renderer getRenderer();
+
+        public extern void handleKeyUp(object e);
     }
 }

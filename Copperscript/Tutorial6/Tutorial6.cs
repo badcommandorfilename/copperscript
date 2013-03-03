@@ -14,11 +14,11 @@ namespace Tutorial6
     [ScriptNamespace("GLEngine")]
     public class Tutorial6
     {
-        private SceneNode cubeCollisionPosition = null;
+        private CopperLicht engine = null;
 
         public CopperLicht main()
         {
-            CopperLicht engine = Global.startCopperLichtFromFile("3darea", "assets/copperlichtdata/room.ccbjs");
+            engine = Global.startCopperLichtFromFile("3darea", "assets/copperlichtdata/room.ccbjs");
 
             engine.OnLoadingComplete = delegate
             {
@@ -71,8 +71,44 @@ namespace Tutorial6
             return engine;
         }
 
-        public SceneNode onKeySpace(CopperLicht engine, Scene scene)
+        public void setEventHandlers()
         {
+            jQuery.Document.Keyup(new jQueryEventHandler(delegate(jQueryEvent e)
+                {
+                    int key = e.Which;
+
+                    // every time the user presses e, we want to do a collision test with the wall
+                    // and create a cube where we hit the wall
+                    if (key == 69)
+                    {
+                        shootCube();
+                    }
+
+                    if (key == 32)
+                    {
+                        jump();
+                    }
+
+                    // we need to call the key handler of the 3d engine as well, so that the user is
+                    // able to move the camera using the keys
+                    engine.handleKeyUp(e);
+                }
+                ));
+        }
+
+        private void jump()
+        {
+
+        }
+
+        public SceneNode shootCube()
+        {
+            Scene scene = engine.getScene();
+            if (scene == null)
+            {
+                return null;
+            }
+
             CameraSceneNode cam = scene.getActiveCamera();
 			
 			// calculate the start and end 3d point of the line, the beinning being
@@ -89,18 +125,24 @@ namespace Tutorial6
 			if (collisionPoint != null)
 			{
 				// a collision has been found.
-
-                if (cubeCollisionPosition == null) // if this is the first time, create a cube at the point where the collision happened
-				{
-					cubeCollisionPosition = new CL3D.CubeSceneNode();
-					scene.getRootSceneNode().addChild(cubeCollisionPosition);
-					cubeCollisionPosition.getMaterial(0).Tex1 = engine.getTextureManager().getTexture("assets/ground_stone.jpg", true);
-				}
+                CubeSceneNode cubeCollision = new CubeSceneNode();
+				scene.getRootSceneNode().addChild(cubeCollision);
+				cubeCollision.getMaterial(0).Tex1 = engine.getTextureManager().getTexture("assets/ground_stone.jpg", true);
 				
-				cubeCollisionPosition.Pos = collisionPoint; //Move the existing cube
+				cubeCollision.Pos = collisionPoint; //Move the new cube
+
+                MetaTriangleSelector geometry = scene.getCollisionGeometry() as MetaTriangleSelector;
+
+                if (geometry != null)
+                {
+                    geometry.addSelector(new MeshTriangleSelector(cubeCollision.getMesh(), cubeCollision)); 
+                    //Add the new cube to the collision geometry
+                }
+
+                return cubeCollision;
 			}
 
-            return cubeCollisionPosition;
+            return null;
         }
     }
 }
