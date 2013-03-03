@@ -52,6 +52,7 @@
     <Compile Include="SceneNode\CubeSceneNode.cs" />
     <Compile Include="SceneNode\SceneNode.cs" />
     <Compile Include="SceneNode\SkyBoxSceneNode.cs" />
+    <Compile Include="Primatives\Triangle3d.cs" />
     <Compile Include="TriangleSelector\TriangleSelector.cs" />
     <ScriptInfo Include="Properties\ScriptInfo.txt" />
     <Compile Include="Copperlicht.cs" />

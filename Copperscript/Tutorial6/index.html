@@ -24,10 +24,8 @@
 
 	var engine = t.main();
 
-	var cubeCollisionPosition = null;
 	// every time the user presses space, we want to do a collision test with the wall
 	// and create a cube where we hit the wall
-	
 	document.onkeyup = function(event)
 	{
 		var scene = engine.getScene();
@@ -36,33 +34,7 @@
 			
 		if (event.keyCode == 32) // space has been pressed
 		{
-			var cam = scene.getActiveCamera();
-			
-			// calculate the start and end 3d point of the line, the beinning being
-			// the camera position and the end about 2000 units away in the direction of the
-			// camera target
-			
-			var startLine = cam.getAbsolutePosition();
-			var endLine = startLine.add(cam.getTarget().substract(startLine).multiplyWithScal(2000));
-			
-			// test our line for a collision with the world
-			
-			var collisionPoint = scene.getCollisionGeometry().getCollisionPointWithLine(startLine, endLine, true, null);
-						
-			if (collisionPoint)
-			{
-				// a collision has been found.
-				// create a cube at the point where the collision happened
-				
-				if (!cubeCollisionPosition)
-				{
-					cubeCollisionPosition = new CL3D.CubeSceneNode();
-					scene.getRootSceneNode().addChild(cubeCollisionPosition);
-					cubeCollisionPosition.getMaterial(0).Tex1 = engine.getTextureManager().getTexture('assets/ground_stone.jpg', true);
-				}
-				
-				cubeCollisionPosition.Pos = collisionPoint;
-			}
+		    t.onKeySpace(engine, scene);
 		}		
 		
 		// we need to call the key handler of the 3d engine as well, so that the user is

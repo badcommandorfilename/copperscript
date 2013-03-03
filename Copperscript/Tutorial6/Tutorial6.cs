@@ -14,6 +14,8 @@ namespace Tutorial6
     [ScriptNamespace("GLEngine")]
     public class Tutorial6
     {
+        private SceneNode cubeCollisionPosition = null;
+
         public CopperLicht main()
         {
             CopperLicht engine = Global.startCopperLichtFromFile("3darea", "assets/copperlichtdata/room.ccbjs");
@@ -65,5 +67,36 @@ namespace Tutorial6
             return engine;
         }
 
+        public SceneNode onKeySpace(CopperLicht engine, Scene scene)
+        {
+            CameraSceneNode cam = scene.getActiveCamera();
+			
+			// calculate the start and end 3d point of the line, the beinning being
+			// the camera position and the end about 2000 units away in the direction of the
+			// camera target
+			
+			Vect3d startLine = cam.getAbsolutePosition();
+            Vect3d endLine = startLine.add(cam.getTarget().substract(startLine).multiplyWithScal(2000.0));
+			
+			// test our line for a collision with the world
+			
+			Vect3d collisionPoint = scene.getCollisionGeometry().getCollisionPointWithLine(startLine, endLine, true, null);
+						
+			if (collisionPoint != null)
+			{
+				// a collision has been found.
+
+                if (cubeCollisionPosition == null) // if this is the first time, create a cube at the point where the collision happened
+				{
+					cubeCollisionPosition = new CL3D.CubeSceneNode();
+					scene.getRootSceneNode().addChild(cubeCollisionPosition);
+					cubeCollisionPosition.getMaterial(0).Tex1 = engine.getTextureManager().getTexture("assets/ground_stone.jpg", true);
+				}
+				
+				cubeCollisionPosition.Pos = collisionPoint; //Move the existing cube
+			}
+
+            return cubeCollisionPosition;
+        }
     }
 }
