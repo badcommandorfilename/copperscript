@@ -33,12 +33,15 @@
     <Compile Include="Animator\Animator.cs" />
     <Compile Include="Animator\AnimatorCameraFPS.cs" />
     <Compile Include="Animator\AnimatorCollisionResponse.cs" />
+    <Compile Include="Animator\AnimatorFlyStraight.cs" />
     <Compile Include="Animator\AnimatorRotation.cs" />
     <Compile Include="Mesh\Material.cs" />
     <Compile Include="Mesh\Mesh.cs" />
     <Compile Include="Mesh\MeshBuffer.cs" />
     <Compile Include="Mesh\Texture.cs" />
     <Compile Include="Mesh\TextureManager.cs" />
+    <Compile Include="SceneNode\MeshSceneNode.cs" />
+    <Compile Include="TriangleSelector\MeshTriangleSelector.cs" />
     <Compile Include="TriangleSelector\MetaTriangleSelector.cs" />
     <Compile Include="Primatives\Matrix.cs" />
     <Compile Include="Primatives\Matrix4.cs" />
