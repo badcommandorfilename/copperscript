@@ -16,16 +16,13 @@ namespace CL3D
         public Vect3d Pos;
         [PreserveCase]
         public Mesh Mesh;
+        [PreserveCase]
+        public Vect3d Scale;
 
         [ScriptName("addAnimator")]
         public extern void addAnimator(Animator animiator);
         [ScriptName("addChild")]
         public extern void addChild(SceneNode n);
-
-        [ScriptName("setSize")]
-        public extern void setSize(double xscale, double yscale);
-        [ScriptName("setSize")]
-        public extern void setSize(double xscale, double yscale, double zscale);
 
         [ScriptName("getMaterial")]
         public extern Material getMaterial(int layer);
