@@ -15,9 +15,9 @@ namespace CL3D
         [PreserveCase]
         public Action OnAnimate; //Called every frame
         [PreserveCase]
-        public Action OnAfterDrawAll; //Called before every frame
+        public Action OnAfterDrawAll; //Called after every frame
         [PreserveCase]
-        public Action OnBeforeDrawAll; //Called after every frame
+        public Action OnBeforeDrawAll; //Called before every frame
 
         public extern CopperLicht(string canvassname);
 
