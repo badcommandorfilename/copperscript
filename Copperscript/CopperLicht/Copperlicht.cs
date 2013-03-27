@@ -29,15 +29,15 @@ namespace CL3D
         [ScriptName("getTextureManager")]
         public extern TextureManager getTextureManager();
 
-        [ScriptName("initRenderer")]
         public extern bool initRenderer();
-
-        [ScriptName("get2DPositionFrom3DPosition")]
-        public extern Vect2d get2DPositionFrom3DPosition(Vect3d pos3d);
-
-        [ScriptName("getRenderer")]
         public extern Renderer getRenderer();
 
+        public extern Vect2d get2DPositionFrom3DPosition(Vect3d pos3d);
+        public extern Vect3d get3DPositionFrom2DPosition(double x, double y);
+
         public extern void handleKeyUp(object e);
+
+        public extern double getMouseX();
+        public extern double getMouseY();
     }
 }

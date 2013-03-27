@@ -18,5 +18,6 @@ namespace CL3D
         public extern Vect3d substract(Vect3d other); //Copperlicht function is labelled "substract" instead of "subtract"
         public extern Vect3d multiplyWithScal(double scalar);
         public extern Vect3d multiplyThisWithScal(double scalar);
+        public extern void normalize();
     }
 }
