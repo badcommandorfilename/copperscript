@@ -19,6 +19,8 @@ namespace CL3D
         [PreserveCase]
         public Mesh Mesh;
         [PreserveCase]
+        public Mesh OwnedMesh;
+        [PreserveCase]
         public Vect3d Scale;
 
 
@@ -39,7 +41,5 @@ namespace CL3D
 
         [ScriptName("init")]
         protected extern void init();
-
-
     }
 }

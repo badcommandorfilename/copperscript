@@ -41,6 +41,7 @@
     <Compile Include="Mesh\Texture.cs" />
     <Compile Include="Mesh\TextureManager.cs" />
     <Compile Include="SceneNode\MeshSceneNode.cs" />
+    <Compile Include="SceneNode\Overlay2DSceneNode.cs" />
     <Compile Include="TriangleSelector\MeshTriangleSelector.cs" />
     <Compile Include="TriangleSelector\MetaTriangleSelector.cs" />
     <Compile Include="Primatives\Matrix.cs" />
@@ -66,6 +67,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Script.jQuery">
+      <HintPath>..\packages\ScriptSharp.Lib.jQuery.0.7.5.0\lib\Script.jQuery.dll</HintPath>
+    </Reference>
     <Reference Include="Script.Web">
       <HintPath>..\packages\ScriptSharp.Lib.HTML.0.7.5.0\lib\Script.Web.dll</HintPath>
     </Reference>
