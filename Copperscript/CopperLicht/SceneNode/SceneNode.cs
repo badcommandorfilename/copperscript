@@ -29,8 +29,8 @@ namespace CL3D
         [PreserveCase]
         public extern void removeAnimator(AnimatorCameraFPS animator);
 
-        [ScriptName("addChild")]
         public extern void addChild(SceneNode n);
+        public extern void removeChild(SceneNode n);
 
         [ScriptName("getMaterial")]
         public extern Material getMaterial(int layer);
