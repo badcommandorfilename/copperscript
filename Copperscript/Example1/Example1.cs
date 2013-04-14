@@ -29,7 +29,7 @@ namespace WebGLExample
 
             s.setBackgroundColor(col);
 
-            SceneNode n = new MySceneNode(engine);
+            MySceneNode n = new MySceneNode(engine);
             s.getRootSceneNode().addChild(n);
 
             n.addAnimator(new AnimatorRotation(new Vect3d(0, 0.6, 0.8)));
@@ -50,9 +50,18 @@ namespace WebGLExample
             AnimatorCameraFPS animator = new AnimatorCameraFPS(cam, engine);
             cam.addAnimator(animator);
             animator.lookAt(new CL3D.Vect3d(0, 20, 0));
+            cam.removeAnimator(animator);
 
             s.getRootSceneNode().addChild(cam);
             s.setActiveCamera(cam);
+
+            jQuery.Document.Keyup(
+                new jQueryEventHandler(
+                    delegate(jQueryEvent e)
+                    {
+                        n.RandomizeTexture(); //Press any key to change the texture
+                    }
+                ));
         }
     }
 }

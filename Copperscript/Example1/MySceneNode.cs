@@ -14,8 +14,10 @@ namespace WebGLExample
 {
     public class MySceneNode : SceneNode
     {
+        CopperLicht cl;
         public MySceneNode(CopperLicht engine)
         {
+            cl = engine;
             init();  // init scene node specific members
 		
 		    // create a 3d mesh with one mesh buffer
@@ -57,16 +59,17 @@ namespace WebGLExample
                 Mesh m = this.Mesh;
                 r.drawMesh(m);
             };
-
-            LoadImage("assets/ground_stone.jpg", 256, 256, delegate(ImageElement img)
-            {
-                buf.Mat.Tex1 = engine.getTextureManager().getTexture(img.Src, true);
-            }
-);
         }
 
+        public void RandomizeTexture()
+        {
+            RecolourImage("assets/ground_brown.jpg", 256, 256, delegate(ImageElement img)
+            {
+                this.Mesh.GetMeshBuffers()[0].Mat.Tex1 = cl.getTextureManager().getTexture(img.Src, true);
+            });
+        }
 
-        private void LoadImage(String imgsrc, uint w, uint h,  Action<ImageElement> callback)
+        private void RecolourImage(String imgsrc, uint w, uint h, Action<ImageElement> callback)
         {
             ImageElement tempimage = (ImageElement)jQuery.FromHtml(
                 "<img id=\"tempimage\" " +
@@ -88,11 +91,19 @@ namespace WebGLExample
                     tempcanvas.Height = tempimage.Height;
                     ctx.drawImage(tempimage, 0, 0, tempimage.Width, tempimage.Height);
 
+                    double red = Math.Random() * 254 - 128;
+                    double green = Math.Random() * 254 - 128;
+                    double blue = Math.Random() * 254 - 128;
+
                     for (int y = 0; y < h; y++)
                     {
                         for (int x = 0; x < w; x++)
                         {
                             JSPixelData pix = (JSPixelData)ctx.getImageData(x, y, 1, 1);
+                            pix.data[0] += (Byte)red;
+                            pix.data[1] += (Byte)green;
+                            pix.data[2] += (Byte)blue;
+                            ctx.putImageData(pix, x, y);
                         }
                     }
 
