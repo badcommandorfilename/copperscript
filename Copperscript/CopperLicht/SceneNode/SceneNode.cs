@@ -15,22 +15,29 @@ namespace CL3D
         [PreserveCase]
         public Vect3d Pos;
         [PreserveCase]
+        public Vect3d Rot;
+        [PreserveCase]
         public Mesh Mesh;
+        [PreserveCase]
+        public Mesh OwnedMesh;
         [PreserveCase]
         public Vect3d Scale;
 
-        [ScriptName("addAnimator")]
+
+        [PreserveCase]
         public extern void addAnimator(Animator animiator);
-        [ScriptName("addChild")]
+        [PreserveCase]
+        public extern void removeAnimator(AnimatorCameraFPS animator);
+
         public extern void addChild(SceneNode n);
+        public extern void removeChild(SceneNode n);
 
         [ScriptName("getMaterial")]
         public extern Material getMaterial(int layer);
 
-        [ScriptName("getAbsolutePosition")]
         public extern Vect3d getAbsolutePosition();
-        [ScriptName("getAbsoluteTransformation")]
         public extern Matrix4 getAbsoluteTransformation();
+        public extern void updateAbsolutePosition();
 
         [ScriptName("init")]
         protected extern void init();
