@@ -52,7 +52,7 @@ namespace WebGLExample
             if (framelist != null)
             {
                 this.getMaterial(0).Tex1 = cl.getTextureManager().getTexture(framelist[(int)frame], true);
-                this.getMaterial(0).Type = Material.EMT_TRANSPARENT_ADD_COLOR;
+                this.getMaterial(0).Type = Material.EMT_TRANSPARENT_ALPHA_CHANNEL;
             }
         }
 
