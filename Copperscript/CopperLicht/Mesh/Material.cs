@@ -11,6 +11,10 @@ namespace CL3D
     {
         [PreserveCase]
         public static readonly int EMT_TRANSPARENT_ADD_COLOR;
+        [PreserveCase]
+        public static readonly int EMT_TRANSPARENT_ALPHA_CHANNEL;
+        [PreserveCase]
+        public static readonly int EMT_SOLID;
 
         [PreserveCase]
         public int Type;
@@ -19,5 +23,6 @@ namespace CL3D
         public Texture Tex1;
         [PreserveCase]
         public Texture Tex2;
+        
     }
 }
