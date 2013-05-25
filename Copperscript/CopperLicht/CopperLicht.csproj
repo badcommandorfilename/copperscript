@@ -11,6 +11,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CL3D</RootNamespace>
     <AssemblyName>CopperLicht</AssemblyName>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Cavyties\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -40,6 +42,8 @@
     <Compile Include="Mesh\MeshBuffer.cs" />
     <Compile Include="Mesh\Texture.cs" />
     <Compile Include="Mesh\TextureManager.cs" />
+    <Compile Include="Primatives\Light.cs" />
+    <Compile Include="SceneNode\LightSceneNode.cs" />
     <Compile Include="SceneNode\MeshSceneNode.cs" />
     <Compile Include="SceneNode\Overlay2DSceneNode.cs" />
     <Compile Include="TriangleSelector\MeshTriangleSelector.cs" />
@@ -88,4 +92,5 @@
     <Copy SourceFiles="@(ScriptInfo)" DestinationFiles="$(OutputPath)$(AssemblyName).txt" />
   </Target>
   <Import Project="..\packages\ScriptSharp.0.7.5.1\tools\ScriptSharp.targets" Condition="Exists('..\packages\ScriptSharp.0.7.5.1\tools\ScriptSharp.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>

@@ -23,6 +23,8 @@ namespace CL3D
         public Texture Tex1;
         [PreserveCase]
         public Texture Tex2;
+        [PreserveCase]
+        public bool Lighting;
         
     }
 }

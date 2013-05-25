@@ -5,15 +5,15 @@ using System.Runtime.CompilerServices;
 
 namespace CL3D
 {
-    public class Vertex3D
+    public class Light
     {
         [PreserveCase]
-        public Vect3d Pos;
+        public double Color;
         [PreserveCase]
-        public Vect3d Normal;
+        public Vect3d Position;
         [PreserveCase]
-        public Vect3d TCoords;
-
-        public extern Vertex3D(bool empty = true);
+        public Vect3d Attenuation;
+        [PreserveCase]
+        public Vect3d Radius;
     }
 }
